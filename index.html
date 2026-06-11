@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One House — El precio desciende cada día</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="page">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>One House</h1>
+        <h2>El precio desciende cada día.</h2>
+        <p class="lead">Vos decidís el momento.</p>
+        <hr>
+        <p class="desc" id="description">
+          Una propiedad única. El valor comienza en un precio publicado y baja
+          cada día hasta que alguien la reserve primero.
+        </p>
+        <div class="warning">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span>Si esperás un precio más bajo, otra persona puede reservarla otro.</span>
+        </div>
+      </div>
+
+      <div class="hero-img-wrap">
+        <img src="v2.jpeg" alt="Propiedad One House" class="hero-img" id="heroImg">
+      </div>
+      <div class="gallery" id="gallery"></div>
+
+      <aside class="schedule">
+        <p class="schedule-title">Cronograma de descenso</p>
+        <ul id="scheduleList"></ul>
+      </aside>
+    </section>
+
+    <!-- PRICE BAR -->
+    <section class="pricebar">
+      <div class="price-box">
+        <span class="eyebrow">Precio de hoy</span>
+        <p class="price-day">Día <span id="dayNumber">1</span> de 30</p>
+        <p class="price-value" id="currentPrice">US$ 350.000</p>
+        <p class="price-next">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+          Mañana baja a <span id="nextPrice">US$ 346.000</span>
+        </p>
+      </div>
+
+      <div class="countdown-box">
+        <span class="eyebrow">Finaliza en</span>
+        <div class="countdown" id="countdown">
+          <div><span id="cdDays">29</span><small>DÍAS</small></div>
+          <div><span id="cdHours">00</span><small>HORAS</small></div>
+          <div><span id="cdMinutes">00</span><small>MIN</small></div>
+          <div><span id="cdSeconds">00</span><small>SEG</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-row">
+      <button class="btn-gold" id="openModalBtn">
+        ¡Quiero reservar!
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+      <button class="btn-outline" id="openModalBtn2">
+        Quiero más información
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </section>
+
+    <!-- VIDEO -->
+    <section class="video-section" id="videoSection" style="display:none;">
+      <span class="eyebrow">Tour en video</span>
+      <h3>Conoce cada rincón de esta propiedad</h3>
+      <video id="propertyVideo" controls></video>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+      <div class="feature">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg>
+        <p id="feature0">Una sola propiedad</p>
+      </div>
+      <div class="feature">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        <p id="feature1">Precio visible cada día</p>
+      </div>
+      <div class="feature">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <p id="feature2">30 días para decidir</p>
+      </div>
+      <div class="feature">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <p id="feature3">Reserva directa</p>
+      </div>
+      <div class="feature">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41 11 23l-9-9 9.59-9.59A2 2 0 0 1 13 4h6a2 2 0 0 1 2 2v6a2 2 0 0 1-.41 1.41z"/><circle cx="16.5" cy="7.5" r="1"/></svg>
+        <p id="featurePriceInicial">Precio inicial: US$ 350.000</p>
+      </div>
+      <div class="feature">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+        <p id="featurePriceFinal">Último precio estimado: US$ 240.000</p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>Si el valor te cierra, podés reservar antes que otro.</p>
+      <p class="footer-strong">No la dejes pasar</p>
+      <p>El precio <span class="gold-text">desciende</span> cada día.</p>
+    </footer>
+
+  </main>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="modal-close" id="modalClose" aria-label="Cerrar">&times;</button>
+      <h2>¡Quiero reservar!</h2>
+      <p class="modal-sub">Dejá tus datos y nos pondremos en contacto a la brevedad.</p>
+
+      <form id="leadForm">
+        <label>
+          Nombre
+          <input type="text" name="nombre" required placeholder="Tu nombre">
+        </label>
+        <label>
+          Apellido
+          <input type="text" name="apellido" required placeholder="Tu apellido">
+        </label>
+        <label>
+          WhatsApp
+          <input type="tel" name="whatsapp" required placeholder="+54 9 11 1234 5678">
+        </label>
+        <button type="submit" class="btn-gold full">Enviar mi interés</button>
+      </form>
+
+      <div class="modal-success" id="modalSuccess">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg>
+        <h3>¡Listo, recibimos tu interés!</h3>
+        <p>Te vamos a contactar por WhatsApp muy pronto.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One House — Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="login-wrap">
+    <form class="login-card" id="loginForm">
+      <h1>One House</h1>
+      <p>Acceso solo para administradores</p>
+      <input type="password" id="password" placeholder="Contraseña" required>
+      <button type="submit" class="btn-gold">Ingresar</button>
+      <p class="error" id="loginError">Contraseña incorrecta</p>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const password = document.getElementById('password').value;
+      const res = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password })
+      });
+      if (res.ok) {
+        window.location.href = '/admin/dashboard.html';
+      } else {
+        document.getElementById('loginError').style.display = 'block';
+      }
+    });
+
+    // Si ya hay sesión activa, ir directo al dashboard
+    fetch('/api/admin/check').then(r => r.json()).then(d => {
+      if (d.isAdmin) window.location.href = '/admin/dashboard.html';
+    });
+  </script>
+</body>
+</html>

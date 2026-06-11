@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(curl -s -o /dev/null -w \"site:%{http_code} \" http://localhost:4000/index.html)",
+      "Bash(curl -s -o /dev/null -w \"admin:%{http_code} \" http://localhost:4000/admin/index.html)",
+      "Bash(curl -s -X POST http://localhost:4000/api/admin/login -H \"Content-Type: application/json\" -d '{\"password\":\"cambia-esta-clave\"}' -c /tmp/c.txt -w \" login:%{http_code}\\\\n\")",
+      "Bash(pkill -f \"node server.js\")",
+      "Bash(rm -f backend/data.db)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ]
+  }
+}
