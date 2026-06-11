@@ -26,9 +26,16 @@ body{
 .hero{
   display:grid;
   grid-template-columns:1.1fr 1.2fr 0.8fr;
+  grid-template-areas:
+    "text  image    schedule"
+    "text  gallery  schedule";
   gap:24px;
   align-items:start;
 }
+.hero-text{grid-area:text;}
+.hero-img-wrap{grid-area:image;}
+.gallery{grid-area:gallery;}
+.schedule{grid-area:schedule; align-self:stretch;}
 .hero-text h1{
   font-family:'Playfair Display',serif;
   font-size:56px;
@@ -94,7 +101,6 @@ body{
 
 /* GALLERY */
 .gallery{
-  grid-column:2;
   display:flex;
   gap:10px;
   margin-top:12px;
@@ -349,8 +355,15 @@ body{
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  .hero{grid-template-columns:1fr;}
-  .hero-img-wrap{min-height:280px;order:-1;}
+  .hero{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "image"
+      "gallery"
+      "text"
+      "schedule";
+  }
+  .hero-img-wrap{min-height:280px;}
   .pricebar{grid-template-columns:1fr;}
   .cta-row{grid-template-columns:1fr;}
   .features{grid-template-columns:repeat(3,1fr);}
