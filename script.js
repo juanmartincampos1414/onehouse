@@ -12,7 +12,7 @@ const DEFAULT_PROPERTY = {
     '30 días para decidir',
     'Reserva directa'
   ],
-  photos: ['v2.jpeg'],
+  photos: ['v2-house.jpg'],
   videoUrl: ''
 };
 

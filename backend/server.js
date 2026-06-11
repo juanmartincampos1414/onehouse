@@ -46,7 +46,7 @@ const DEFAULT_DATA = {
     'Reserva directa'
   ],
   photos: [
-    '/v2.jpeg',
+    '/v2-house.jpg',
     '/header.jpg',
     '/WhatsApp Image 2026-06-10 at 18.31.32.jpeg',
     '/WhatsApp Image 2026-06-10 at 18.31.33.jpeg'

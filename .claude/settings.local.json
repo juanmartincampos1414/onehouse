@@ -9,7 +9,15 @@
       "Bash(rm -f backend/data.db)",
       "Bash(git init *)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(gh repo *)",
+      "Bash(git remote *)",
+      "Bash(git branch *)",
+      "Bash(git push *)",
+      "Bash(sips -g pixelWidth -g pixelHeight v2.jpeg)",
+      "Bash(sips -c 822 709 --cropOffset 57 363 v2.jpeg --out v2-house.jpg)",
+      "Bash(sips -c 790 400 --cropOffset 57 423 v2.jpeg --out v2-house.jpg)",
+      "Bash(sips -c 710 320 --cropOffset 137 503 v2.jpeg --out v2-house.jpg)"
     ]
   }
 }
