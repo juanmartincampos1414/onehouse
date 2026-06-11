@@ -51,7 +51,8 @@ const DEFAULT_DATA = {
     '/WhatsApp Image 2026-06-10 at 18.31.32.jpeg',
     '/WhatsApp Image 2026-06-10 at 18.31.33.jpeg'
   ],
-  videoUrl: ''
+  videoUrl: '',
+  likes: 354
 };
 
 const existing = db.prepare('SELECT data FROM settings WHERE id = 1').get();
@@ -118,6 +119,14 @@ app.get('/api/admin/check', (req, res) => {
 // ---------- Public property data ----------
 app.get('/api/property', (req, res) => {
   res.json(getSettings());
+});
+
+// ---------- "Me interesa" likes ----------
+app.post('/api/likes', (req, res) => {
+  const current = getSettings();
+  current.likes = (current.likes || 0) + 1;
+  saveSettings(current);
+  res.json({ likes: current.likes });
 });
 
 // ---------- Admin: update property data ----------

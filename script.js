@@ -13,7 +13,8 @@ const DEFAULT_PROPERTY = {
     'Reserva directa'
   ],
   photos: ['v2-house.jpg'],
-  videoUrl: ''
+  videoUrl: '',
+  likes: 354
 };
 
 let property = DEFAULT_PROPERTY;
@@ -160,6 +161,8 @@ function renderContent(){
   } else {
     videoSection.style.display = 'none';
   }
+
+  document.getElementById('likeCount').textContent = property.likes ?? 354;
 }
 
 async function loadProperty(){
@@ -192,8 +195,25 @@ function closeModal(){
 }
 
 document.getElementById('openModalBtn').addEventListener('click', openModal);
-document.getElementById('openModalBtn2').addEventListener('click', openModal);
 document.getElementById('modalClose').addEventListener('click', closeModal);
+
+// ====== ME INTERESA (LIKES) ======
+const likeBtn = document.getElementById('likeBtn');
+const likeCountEl = document.getElementById('likeCount');
+likeBtn.addEventListener('click', async () => {
+  if(likeBtn.classList.contains('liked')) return;
+  likeBtn.classList.add('liked');
+  likeCountEl.textContent = (parseInt(likeCountEl.textContent, 10) || 0) + 1;
+  try{
+    const res = await fetch('/api/likes', { method: 'POST' });
+    if(res.ok){
+      const data = await res.json();
+      likeCountEl.textContent = data.likes;
+    }
+  }catch(err){
+    console.warn('No se pudo registrar el like.', err);
+  }
+});
 modalOverlay.addEventListener('click', (e) => {
   if(e.target === modalOverlay) closeModal();
 });

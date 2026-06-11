@@ -286,7 +286,17 @@ body{
   border-radius:12px;
   display:flex;align-items:center;justify-content:center;gap:10px;
   cursor:pointer;
+  transition:border-color .2s ease, color .2s ease;
 }
+.btn-outline.liked{
+  color:var(--lime);
+  border-color:var(--lime);
+}
+.like-count{
+  font-weight:800;
+  color:var(--gold);
+}
+.btn-outline.liked .like-count{color:var(--lime);}
 
 /* FEATURES */
 .features{
