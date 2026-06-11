@@ -137,6 +137,20 @@ function renderContent(){
     });
   }
 
+  // Recuadros de fotos (debajo del aviso)
+  const thumbGrid = document.getElementById('thumbGrid');
+  const slots = thumbGrid.querySelectorAll('.thumb-slot');
+  slots.forEach((slot, idx) => {
+    slot.innerHTML = '';
+    const url = property.photos && property.photos[idx];
+    if(url){
+      const img = document.createElement('img');
+      img.src = url;
+      img.alt = `Foto ${idx + 1}`;
+      slot.appendChild(img);
+    }
+  });
+
   // Video
   const videoSection = document.getElementById('videoSection');
   const video = document.getElementById('propertyVideo');

@@ -99,6 +99,26 @@ body{
   display:block;
 }
 
+/* THUMB GRID */
+.thumb-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:20px;
+}
+.thumb-slot{
+  aspect-ratio:1.3 / 1;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  background:var(--card);
+}
+.thumb-slot img{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+}
+
 /* GALLERY */
 .gallery{
   display:flex;
